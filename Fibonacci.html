@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	function fibonacci()
+	{
+		fib = new Array(1, 1);
+		document.write("1º elemento: " + fib[0]+ "<br>");
+		document.write("2º elemento: " + fib[1]+ "<br>");
+		for ( var n = 2; n < 100; n++) 
+		{
+			fib[n] = fib[n - 1] + fib[n - 2];
+			document.write((n+1) +"º elemento: " +fib[n] + "<br>");
+		}
+	}	
+	</script>
+</head>
+<body onload="fibonacci()">
+	
+</body>
+</html>
