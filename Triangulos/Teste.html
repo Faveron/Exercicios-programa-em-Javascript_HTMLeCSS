@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		fieldset
+		{
+ 			background: #BBF0BF;
+ 			float: left;
+		}
+	</style>
+	<script type="text/javascript">
+		function verificatriangulo()
+			{
+				var a = eval(document.form1.a.value);
+				var b = eval(document.form1.b.value);
+				var c = eval(document.form1.c.value);
+				if ( (a + b <= c) || ( a + c <= b) || ( b + c <= a) )
+				{ 
+					document.form1.situacao.value = "Os lados inseridos NÃO formam um triângulo";
+					document.getElementById('imagemprincipal').src = "errado.jpg";
+				}
+				else
+					if ( (a == b) && (a == c) )
+					{ 
+						document.form1.situacao.value = "O triângulo formado é EQUILÁTERO";
+						document.getElementById('imagemprincipal').src = "equilatero.jpg";
+					}
+					else
+						if ( (a == b) || (a == c) || (b == c))
+						{ 
+							document.form1.situacao.value = "O triângulo formado é ISÓSCELES";
+							document.getElementById('imagemprincipal').src = "isosceles.png";
+						}
+						else
+							if ( (a*a + b*b == c*c) || (a*a + c*c == b*b) || (c*c + b*b == a*a) )
+							{
+								document.form1.situacao.value = "O triângulo formado é RETÂNGULO";
+								document.getElementById('imagemprincipal').src = "retangulo.png";
+							}
+							else
+							{
+								document.form1.situacao.value = "O triângulo formado é ESCALENO";
+								document.getElementById('imagemprincipal').src = "escaleno.jpg";
+							}
+			}
+			function limpar ()
+			{
+				document.form1.situacao.value = "";
+				document.form1.imagemprincipal.src = "Interrogacao.jpg";
+			}
+	</script>
+	<title></title>
+</head>
+<body>
+	<h1 align="center"><font color="green"> Indica o tipo de triângulo dados os três lados</font></h1>
+	<table align="center">
+		<tr>
+			<td>
+				<form name="form1">
+				<fieldset>
+					<b><font color="red">Digite o valor do lado a:</font></b> <input type="number" name="a" id="a" onclick="limpar()"><br>
+					<b><font color="blue">Digite o valor do lado b:</font></b> <input type="number" name="b" id="b" onclick="limpar()"><br>
+					<b><font color="black">Digite o valor do lado c:</font></b> <input type="number" name="c" id="c" onclick="limpar()"><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button" value="Verificar" onclick="verificatriangulo()">
+					<input type="reset" value="Limpar" onclick="limpar()"><br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<img src="Interrogacao.jpg" id="imagemprincipal" width="150px" height="150px" align="center"><br>
+					<b>SITUAÇÃO:</b> <output type="text" name="situacao">
+				</fieldset>		
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
